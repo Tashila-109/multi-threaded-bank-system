@@ -1,11 +1,15 @@
+import Enums.AccountType;
+
 public class BankAccount {
     private String accountNumber;
-    private String accountHolderName;
+    private AccountHolder accountHolder;
+    private AccountType accountType; // Enum for account type
     private double balance;
 
-    public BankAccount(String accountNumber, String accountHolderName, double balance) {
+    public BankAccount(String accountNumber, AccountHolder accountHolder, AccountType accountType, double balance) {
         this.accountNumber = accountNumber;
-        this.accountHolderName = accountHolderName;
+        this.accountHolder = accountHolder;
+        this.accountType = accountType;
         this.balance = balance;
     }
 
@@ -23,8 +27,25 @@ public class BankAccount {
         }
     }
 
-    public synchronized double checkBalance() {
+    public synchronized double getBalance() {
         return balance;
+    }
+
+    // Getters for accountNumber and accountHolder
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public AccountHolder getAccountHolder() {
+        return accountHolder;
+    }
+
+    public AccountType getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(AccountType accountType) {
+        this.accountType = accountType;
     }
 
     // Getters and setters for accountNumber and accountHolderName
