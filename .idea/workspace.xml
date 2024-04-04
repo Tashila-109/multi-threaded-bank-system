@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef25afe6-e585-4b50-a8df-197dafe1d2ed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/BankAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="ef25afe6-e585-4b50-a8df-197dafe1d2ed" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,7 +54,7 @@
       <updated>1712089041317</updated>
       <workItem from="1712089042620" duration="32000" />
       <workItem from="1712089078985" duration="607000" />
-      <workItem from="1712213639749" duration="909000" />
+      <workItem from="1712213639749" duration="1251000" />
     </task>
     <servers />
   </component>
