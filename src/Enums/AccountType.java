@@ -1,5 +1,5 @@
 package Enums;
 
 public enum AccountType {
-    VIP, REGULAR
+    SAVINGS, CURRENT, FIXED_DEPOSIT
 }

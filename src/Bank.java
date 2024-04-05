@@ -1,5 +1,6 @@
 import Enums.AccountType;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,5 +24,9 @@ public class Bank {
 
     public BankAccount getAccount(String accountNumber) {
         return accounts.get(accountNumber);
+    }
+
+    public Collection<BankAccount> getAllAccounts() {
+        return accounts.values();
     }
 }
