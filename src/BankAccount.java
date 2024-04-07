@@ -6,8 +6,8 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 public abstract class BankAccount {
     // Define the locks for thread safety
     private final ReentrantReadWriteLock reentrantReadWriteLock = new ReentrantReadWriteLock();
-    private final Lock readLock = reentrantReadWriteLock.readLock();
-    private final Lock writeLock = reentrantReadWriteLock.writeLock();
+    protected final Lock readLock = reentrantReadWriteLock.readLock();
+    protected final Lock writeLock = reentrantReadWriteLock.writeLock();
     protected String accountNumber;
 
     protected AccountHolder accountHolder;
