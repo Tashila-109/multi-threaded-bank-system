@@ -1,7 +1,15 @@
 import Enums.AccountType;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+
 public abstract class BankAccount {
+    // Define the locks for thread safety
+    private final ReentrantReadWriteLock reentrantReadWriteLock = new ReentrantReadWriteLock();
+    private final Lock readLock = reentrantReadWriteLock.readLock();
+    private final Lock writeLock = reentrantReadWriteLock.writeLock();
     protected String accountNumber;
+
     protected AccountHolder accountHolder;
     protected AccountType accountType; // Enum for account type
     protected double balance;
@@ -13,17 +21,36 @@ public abstract class BankAccount {
         this.balance = balance;
     }
 
-    public synchronized void deposit(double amount) {
-        balance += amount;
-        System.out.println(amount + " deposited. New balance is " + balance);
+    public void deposit(double amount) {
+        writeLock.lock();
+        try {
+            balance += amount;
+            System.out.println(amount + " deposited. New balance is " + balance);
+        } finally {
+            writeLock.unlock();
+        }
     }
 
-    public synchronized void withdraw(double amount)  {
-        if (balance >= amount) {
-            balance -= amount;
-            System.out.println(amount + " withdrawn. Remaining balance is " + balance);
-        } else {
-            System.out.println("Insufficient balance for withdrawal");
+    public void withdraw(double amount) {
+        writeLock.lock();
+        try {
+            if (balance >= amount) {
+                balance -= amount;
+                System.out.println(amount + " withdrawn. Remaining balance is " + balance);
+            } else {
+                System.out.println("Insufficient balance for withdrawal");
+            }
+        } finally {
+            writeLock.unlock();
+        }
+    }
+
+    public double getBalance() {
+        readLock.lock();
+        try {
+            return balance;
+        } finally {
+            readLock.unlock();
         }
     }
 
@@ -31,10 +58,6 @@ public abstract class BankAccount {
 
     // Define an abstract method for annual charges
     public abstract void applyAnnualCharges();
-
-    public synchronized double getBalance() {
-        return balance;
-    }
 
     // Getters for accountNumber and accountHolder
     public String getAccountNumber() {
@@ -52,7 +75,4 @@ public abstract class BankAccount {
     public void setAccountType(AccountType accountType) {
         this.accountType = accountType;
     }
-
-
 }
-
