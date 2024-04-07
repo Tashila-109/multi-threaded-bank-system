@@ -47,6 +47,12 @@ public class Client {
             threads.add(clientThread);
         }
 
+        for (BankAccount account : bank.getAllAccounts()) {
+            BalanceReporter reporter = new BalanceReporter(account);
+            Thread reportThread = new Thread(reporter);
+            threads.add(reportThread);
+        }
+
         // Start all threads
         for (Thread thread : threads) {
             thread.start();
