@@ -1,11 +1,11 @@
 import Enums.AccountType;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Bank {
-    private Map<String, BankAccount> accounts = new HashMap<>();
+    private Map<String, BankAccount> accounts = new ConcurrentHashMap<>();
 
     public void addAccount(String accountNumber, AccountHolder holder, double initialBalance, AccountType accountType, double interestRate, double overdraftLimit) {
         BankAccount account = switch (accountType) {

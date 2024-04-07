@@ -8,6 +8,6 @@ public class AnnualChargesCalculation implements Runnable {
     @Override
     public void run() {
         System.out.println("Applying annual charges to all accounts...");
-        bank.applyInterestToAllAccounts();
+        bank.applyAnnualChargesToAllAccounts();
     }
 }
