@@ -12,9 +12,17 @@ public class TransactionProcessor implements Runnable {
     @Override
     public void run() {
         if (isDeposit) {
-            account.deposit(amount);
+            try {
+                account.deposit(amount);
+            } catch (IllegalArgumentException e) {
+               System.out.println("There was an Illegal Argument present while processing the deposit.");
+            }
         } else {
-            account.withdraw(amount);
+            try {
+                account.withdraw(amount);
+            } catch (IllegalArgumentException e) {
+                System.out.println("There was an Illegal Argument present while processing the withdrawal.");
+            }
         }
     }
 }

@@ -15,7 +15,11 @@ public class FixedDepositAccount extends BankAccount {
         writeLock.lock();
         try {
             // Implementation specific to fixed deposit account
-            double interest = balance * interestRate / 100;
+            int years = termLength / 12; // Convert term length from months to years, if termLength is in months
+            if (termLength % 12 > 0) {
+                years++;  // Round up for partial years
+            }
+            double interest = balance * interestRate / 100 * years;
             balance += interest;
             System.out.println("Interest of " + interest + " applied to account " + accountNumber);
         } finally {

@@ -24,8 +24,13 @@ public abstract class BankAccount {
     public void deposit(double amount) {
         writeLock.lock();
         try {
+            if (amount <= 0) {
+                throw new IllegalArgumentException("Deposit amount must be positive.");
+            }
             balance += amount;
             System.out.println(amount + " deposited. New balance is " + balance);
+        } catch (Exception e) {
+            System.out.println("An error occurred while processing the deposit amount.");
         } finally {
             writeLock.unlock();
         }
@@ -34,12 +39,17 @@ public abstract class BankAccount {
     public void withdraw(double amount) {
         writeLock.lock();
         try {
+            if (amount <= 0) {
+                throw new IllegalArgumentException("Withdrawal amount must be positive.");
+            }
             if (balance >= amount) {
                 balance -= amount;
                 System.out.println(amount + " withdrawn. Remaining balance is " + balance);
             } else {
                 System.out.println("Insufficient balance for withdrawal");
             }
+        }  catch (Exception e) {
+            System.out.println("An error occurred while processing the withdrawal amount.");
         } finally {
             writeLock.unlock();
         }

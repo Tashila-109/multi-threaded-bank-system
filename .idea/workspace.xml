@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef25afe6-e585-4b50-a8df-197dafe1d2ed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/BalanceReporter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BankAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CurrentAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CurrentAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FixedDepositAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FixedDepositAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TransactionProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TransactionProcessor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +77,7 @@
       <workItem from="1712089042620" duration="32000" />
       <workItem from="1712089078985" duration="607000" />
       <workItem from="1712213639749" duration="16866000" />
-      <workItem from="1712490160393" duration="10067000" />
+      <workItem from="1712490160393" duration="16623000" />
     </task>
     <servers />
   </component>

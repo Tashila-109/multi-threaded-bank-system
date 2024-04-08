@@ -14,6 +14,9 @@ public class CurrentAccount extends BankAccount {
     public void withdraw(double amount) {
         writeLock.lock();
         try {
+            if (amount <= 0) {
+                throw new IllegalArgumentException("Withdrawal amount must be positive.");
+            }
             if (balance + overdraftLimit >= amount) {
                 balance -= amount;
                 System.out.println(amount + " withdrawn from " + accountNumber + ". Remaining balance: " + balance);
