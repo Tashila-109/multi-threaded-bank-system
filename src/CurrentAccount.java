@@ -23,7 +23,9 @@ public class CurrentAccount extends BankAccount {
             } else {
                 System.out.println("Withdrawal amount exceeds overdraft limit for account " + accountNumber);
             }
-        } finally {
+        } catch (Exception e){
+            System.out.println("There was an unexpected issue while processing the withdrawal amount");
+        }finally {
             writeLock.unlock();
         }
     }
