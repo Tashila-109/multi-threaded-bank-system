@@ -64,6 +64,7 @@ public class Client {
 
             // Cycle through the account numbers for each client
             String accountNumber = accountNumbers[i % accountNumbers.length];
+//            String accountNumber = accountNumbers[0];
             BankAccount account = bank.getAccount(accountNumber);
 
             double amount = 100 + (i * 100); // Example transaction amount

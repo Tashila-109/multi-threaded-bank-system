@@ -3,7 +3,7 @@ import Enums.AccountType;
 public class CurrentAccount extends BankAccount {
     // Specific attributes for current account if any
     private double overdraftLimit;
-    private double overdraftInterestRate; // Interest rate for the used overdraft
+    private double overdraftInterestRate = 0.5; // Interest rate for the used overdraft
 
     public CurrentAccount(String accountNumber, AccountHolder accountHolder, double balance, double overdraftLimit) {
         super(accountNumber, accountHolder, AccountType.CURRENT, balance);

@@ -45,7 +45,17 @@ public class Bank {
     }
 
     public BankAccount getAccount(String accountNumber) {
-        return accounts.get(accountNumber);
+        if (accountNumber == null || accountNumber.trim().isEmpty()) {
+            throw new IllegalArgumentException("Account number cannot be null or empty.");
+        }
+
+        BankAccount account = accounts.get(accountNumber);
+
+        if (account == null) {
+            System.out.println("No account found with account number: " + accountNumber);
+            return null;
+        }
+        return account;
     }
 
     public Collection<BankAccount> getAllAccounts() {
